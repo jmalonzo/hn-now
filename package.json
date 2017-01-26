@@ -1,0 +1,41 @@
+{
+  "name": "hn-cli",
+  "version": "1.0.0",
+  "description": "HackerNews CLI",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc --pretty",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmalonzo/hn-cli.git"
+  },
+  "keywords": [
+    "hackernews",
+    "HN",
+    "tech news",
+    "cli",
+    "terminal"
+  ],
+  "author": "Jan Alonzo <jmalonzo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jmalonzo/hn-cli/issues"
+  },
+  "homepage": "https://github.com/jmalonzo/hn-cli#readme",
+  "bin": {
+    "hn-cli": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "axios": "^0.15.3",
+    "chalk": "^1.1.3",
+    "typescript": "^2.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.4"
+  }
+}
