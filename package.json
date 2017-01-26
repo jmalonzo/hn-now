@@ -1,6 +1,6 @@
 {
   "name": "hn-now",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "HackerNews CLI",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,8 @@
     "hn-now": "./index.js"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "main.js"
   ],
   "dependencies": {
     "axios": "^0.15.3",
