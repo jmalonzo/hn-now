@@ -1,27 +1,23 @@
 "use strict";
 const axios_1 = require("axios");
 const chalk = require("chalk");
+const defaultURI = 'https://news.ycombinator.com/item?id=';
 const endpoints = {
-    topstories: 'https://hacker-news.firebaseio.com/v0/topstories.json',
-    newstories: 'https://hacker-news.firebaseio.com/v0/newstories.json',
-    beststories: 'https://hacker-news.firebaseio.com/v0/beststories.json',
+    top: 'https://hacker-news.firebaseio.com/v0/topstories.json',
+    new: 'https://hacker-news.firebaseio.com/v0/newstories.json',
+    best: 'https://hacker-news.firebaseio.com/v0/beststories.json',
+    ask: 'https://hacker-news.firebaseio.com/v0/askstories.json',
+    show: 'https://hacker-news.firebaseio.com/v0/showstories.json',
+    job: 'https://hacker-news.firebaseio.com/v0/jobstories.json',
     item: 'https://hacker-news.firebaseio.com/v0/item/'
 };
 const hardlimit = 60;
-let useEndpoint = 'topstories';
 let limit = process.argv[3] || 20;
 if (limit > hardlimit) {
     console.log(`Capping limit to ${hardlimit} for now.`);
     limit = hardlimit;
 }
-switch (process.argv[2]) {
-    case 'best':
-        useEndpoint = 'beststories';
-        break;
-    case 'new':
-        useEndpoint = 'newstories';
-        break;
-}
+const useEndpoint = endpoints.hasOwnProperty(process.argv[2]) ? process.argv[2] : 'top';
 axios_1.default.get(endpoints[useEndpoint]).then(response => {
     let ids = response.data.slice(0, limit);
     let promises = ids.map((id) => axios_1.default.get(`${endpoints.item}/${id}.json`));
@@ -36,7 +32,13 @@ axios_1.default.get(endpoints[useEndpoint]).then(response => {
             .filter((resp) => resp && resp.data)
             .map((resp) => {
             let data = resp.data;
-            let points = chalk.gray(`(${data.descendants || 0} replies)`);
+            let points = '';
+            if (data.descendants) {
+                points = chalk.gray(`(${data.descendants || 0} replies)`);
+            }
+            if (!data.url) {
+                data.url = `${defaultURI}${data.id}`;
+            }
             let uri = chalk.white.underline(data.url);
             return ` ${data.title} ${points} — ${uri}`;
         });
