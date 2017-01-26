@@ -1,6 +1,6 @@
 {
-  "name": "hn-cli",
-  "version": "1.0.0",
+  "name": "hn-now",
+  "version": "1.0.1",
   "description": "HackerNews CLI",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jmalonzo/hn-cli.git"
+    "url": "https://github.com/jmalonzo/hn-now.git"
   },
   "keywords": [
     "hackernews",
@@ -21,11 +21,11 @@
   "author": "Jan Alonzo <jmalonzo@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jmalonzo/hn-cli/issues"
+    "url": "https://github.com/jmalonzo/hn-now/issues"
   },
-  "homepage": "https://github.com/jmalonzo/hn-cli#readme",
+  "homepage": "https://github.com/jmalonzo/hn-now#readme",
   "bin": {
-    "hn-cli": "./index.js"
+    "hn-now": "./index.js"
   },
   "files": [
     "index.js"

@@ -26,7 +26,7 @@ axios.get(endpoints[useEndpoint]).then(response => {
     let ids = response.data.slice(0, limit);
     let promises = ids.map((id: number) => axios.get(`${endpoints.item}/${id}.json`));
     axios.all(promises).then(response => {
-        let details = response
+        response
             .sort((a: any, b: any) =>  {
                 if (b.data && a.data) {
                     return b.data.score - a.data.score
@@ -46,6 +46,6 @@ axios.get(endpoints[useEndpoint]).then(response => {
                 let uri = chalk.white.underline(data.url);
                 return ` ${data.title} ${points} — ${uri}`;
             })
-        console.log(details.join('\n'));
+            .forEach(story => console.log(story));
     })
 });
