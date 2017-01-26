@@ -19,8 +19,8 @@ if (limit > hardlimit) {
 }
 const useEndpoint = endpoints.hasOwnProperty(process.argv[2]) ? process.argv[2] : 'top';
 axios_1.default.get(endpoints[useEndpoint]).then(response => {
-    let ids = response.data.slice(0, limit);
-    let promises = ids.map((id) => axios_1.default.get(`${endpoints.item}/${id}.json`));
+    const ids = response.data.slice(0, limit);
+    const promises = ids.map((id) => axios_1.default.get(`${endpoints.item}/${id}.json`));
     axios_1.default.all(promises).then(response => {
         response
             .sort((a, b) => {
@@ -32,15 +32,17 @@ axios_1.default.get(endpoints[useEndpoint]).then(response => {
             .filter((resp) => resp && resp.data)
             .map((resp) => {
             let data = resp.data;
-            let points = '';
+            let comments = '';
             if (data.descendants) {
-                points = chalk.gray(`(${data.descendants || 0} replies)`);
+                const ncommentStr = data.descendants > 1 ? 'replies' : 'reply';
+                const commentURI = chalk.gray.underline(`${defaultURI}${data.id}`);
+                comments = chalk.gray(` (${data.descendants} ${ncommentStr} | ${commentURI})\n`);
             }
             if (!data.url) {
                 data.url = `${defaultURI}${data.id}`;
             }
             let uri = chalk.white.underline(data.url);
-            return ` ${data.title} ${points} — ${uri}`;
+            return ` ${chalk.bold(data.title)} — ${uri}\n${comments}`;
         })
             .forEach(story => console.log(story));
     });
