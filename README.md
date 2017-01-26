@@ -11,4 +11,4 @@ Check the top, new, or best stories in HackerNews in the comfort of your termina
 
 ## Usage
 
-`$ hn-cli top|best|new|ask|job|show`
+`$ hn-now top|best|new|ask|job|show`
