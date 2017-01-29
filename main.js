@@ -11,8 +11,8 @@ const endpoints = {
     job: 'https://hacker-news.firebaseio.com/v0/jobstories.json',
     item: 'https://hacker-news.firebaseio.com/v0/item/'
 };
-const hardlimit = 60;
-let limit = process.argv[3] || 20;
+const hardlimit = 100;
+let limit = process.argv[3] || 30;
 if (limit > hardlimit) {
     console.log(`Capping limit to ${hardlimit} for now.`);
     limit = hardlimit;
@@ -35,14 +35,18 @@ axios_1.default.get(endpoints[useEndpoint]).then(response => {
             let comments = '';
             if (data.descendants) {
                 const ncommentStr = data.descendants > 1 ? 'replies' : 'reply';
-                const commentURI = chalk.gray.underline(`${defaultURI}${data.id}`);
-                comments = chalk.gray(` (${data.descendants} ${ncommentStr} | ${commentURI})\n`);
+                let commentURI = '';
+                if (data.url && data.url !== `${defaultURI}${data.id}`) {
+                    commentURI = chalk.gray.underline(`${defaultURI}${data.id}`);
+                    commentURI = ' ' + commentURI;
+                }
+                comments = chalk.gray(`(${data.descendants} ${ncommentStr}${commentURI})`);
             }
             if (!data.url) {
                 data.url = `${defaultURI}${data.id}`;
             }
             let uri = chalk.white.underline(data.url);
-            return ` ${chalk.bold(data.title)} — ${uri}\n${comments}`;
+            return ` ${chalk.bold(data.title)} — ${uri} ${comments}`;
         })
             .forEach(story => console.log(story));
     });
