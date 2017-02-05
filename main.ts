@@ -29,12 +29,6 @@ axios.get(endpoints[useEndpoint]).then(response => {
     const promises = ids.map((id: number) => axios.get(`${endpoints.item}/${id}.json`));
     axios.all(promises).then(response => {
         response
-            .sort((a: any, b: any) =>  {
-                if (b.data && a.data) {
-                    return b.data.score - a.data.score
-                }
-                return 0;
-            })
             .filter((resp: any) => resp && resp.data)
             .map((resp: any) => {
                 let data = resp.data;

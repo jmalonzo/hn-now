@@ -1,6 +1,6 @@
 {
   "name": "hn-now",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "HackerNews CLI",
   "main": "index.js",
   "scripts": {
