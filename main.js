@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = require("axios");
 const chalk = require("chalk");
 const defaultURI = 'https://news.ycombinator.com/item?id=';
