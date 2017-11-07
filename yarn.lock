@@ -2,70 +2,75 @@
 # yarn lockfile v1
 
 
-"@types/node@^7.0.12":
-  version "7.0.12"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.12.tgz#ae5f67a19c15f752148004db07cbbb372e69efc9"
+"@types/node@^8.0.49":
+  version "8.0.49"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.49.tgz#417f86ab4829c629fe561779ee48751e0fe2a11b"
 
-ansi-regex@^2.0.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
-
-ansi-styles@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-2.2.1.tgz#b432dd3358b634cf75e1e4664368240533c1ddbe"
-
-axios@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.16.0.tgz#6ed9771d815f429e7510f2838262957c4953d3b6"
+ansi-styles@^3.1.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-3.2.0.tgz#c159b8d5be0f9e5a6f346dab94f16ce022161b88"
   dependencies:
-    follow-redirects "1.0.0"
+    color-convert "^1.9.0"
 
-chalk@^1.1.3:
+axios@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.17.0.tgz#7da747916db803f761651d6091d708789b953c6a"
+  dependencies:
+    follow-redirects "^1.2.3"
+    is-buffer "^1.1.5"
+
+chalk@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.3.0.tgz#b5ea48efc9c1793dccc9b4767c93914d3f2d52ba"
+  dependencies:
+    ansi-styles "^3.1.0"
+    escape-string-regexp "^1.0.5"
+    supports-color "^4.0.0"
+
+color-convert@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.0.tgz#1accf97dd739b983bf994d56fec8f95853641b7a"
+  dependencies:
+    color-name "^1.1.1"
+
+color-name@^1.1.1:
   version "1.1.3"
-  resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
-  dependencies:
-    ansi-styles "^2.2.1"
-    escape-string-regexp "^1.0.2"
-    has-ansi "^2.0.0"
-    strip-ansi "^3.0.0"
-    supports-color "^2.0.0"
+  resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
 
-debug@^2.2.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.0.tgz#bc596bcabe7617f11d9fa15361eded5608b8499b"
+debug@^2.6.9:
+  version "2.6.9"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.9.tgz#5d128515df134ff327e90a4c93f4e077a536341f"
   dependencies:
-    ms "0.7.2"
+    ms "2.0.0"
 
-escape-string-regexp@^1.0.2:
+escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
-follow-redirects@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.0.0.tgz#8e34298cbd2e176f254effec75a1c78cc849fd37"
+follow-redirects@^1.2.3:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.2.5.tgz#ffd3e14cbdd5eaa72f61b6368c1f68516c2a26cc"
   dependencies:
-    debug "^2.2.0"
+    debug "^2.6.9"
 
-has-ansi@^2.0.0:
+has-flag@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/has-ansi/-/has-ansi-2.0.0.tgz#34f5049ce1ecdf2b0649af3ef24e45ed35416d91"
-  dependencies:
-    ansi-regex "^2.0.0"
+  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
 
-ms@0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
+is-buffer@^1.1.5:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
 
-strip-ansi@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-3.0.1.tgz#6a385fb8853d952d5ff05d0e8aaf94278dc63dcf"
-  dependencies:
-    ansi-regex "^2.0.0"
-
-supports-color@^2.0.0:
+ms@2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
+  resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-typescript@^2.2.2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.2.2.tgz#606022508479b55ffa368b58fee963a03dfd7b0c"
+supports-color@^4.0.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.5.0.tgz#be7a0de484dec5c5cddf8b3d59125044912f635b"
+  dependencies:
+    has-flag "^2.0.0"
+
+typescript@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.6.1.tgz#ef39cdea27abac0b500242d6726ab90e0c846631"

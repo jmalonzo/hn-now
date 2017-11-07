@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = require("axios");
-const chalk = require("chalk");
+const chalk_1 = require("chalk");
 const defaultURI = 'https://news.ycombinator.com/item?id=';
 const endpoints = {
     top: 'https://hacker-news.firebaseio.com/v0/topstories.json',
@@ -32,16 +32,16 @@ axios_1.default.get(endpoints[useEndpoint]).then(response => {
                 const ncommentStr = data.descendants > 1 ? 'replies' : 'reply';
                 let commentURI = '';
                 if (data.url && data.url !== `${defaultURI}${data.id}`) {
-                    commentURI = chalk.gray.underline(`${defaultURI}${data.id}`);
+                    commentURI = chalk_1.default.gray.underline(`${defaultURI}${data.id}`);
                     commentURI = ' ' + commentURI;
                 }
-                comments = chalk.gray(`(${data.descendants} ${ncommentStr}${commentURI})`);
+                comments = chalk_1.default.gray(`(${data.descendants} ${ncommentStr}${commentURI})`);
             }
             if (!data.url) {
                 data.url = `${defaultURI}${data.id}`;
             }
-            let uri = chalk.white.underline(data.url);
-            return ` ${chalk.bold(data.title)} — ${uri} ${comments}`;
+            let uri = chalk_1.default.white.underline(data.url);
+            return ` ${chalk_1.default.bold(data.title)} — ${uri} ${comments}`;
         })
             .forEach(story => console.log(story));
     });
